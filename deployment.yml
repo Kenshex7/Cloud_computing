@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: project
+ labels:
+   app: project
+spec:
+ replicas: 6
+ selector:
+   matchLabels:
+     app: project
+ template:
+   metadata:
+     labels:
+       app: project
+   spec:
+     containers:
+     - name: project
+       image: gcr.io/shaped-kite-274623/project
+       ports:
+       - containerPort: 22
